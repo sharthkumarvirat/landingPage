@@ -1,0 +1,108 @@
+
+*{
+    overflow-x: hidden;
+}
+.responsive-h1 {
+    font-size: 2.5rem;
+    @media (min-width: 600px) {
+      font-size: 3rem;
+    }
+    @media (min-width: 960px) {
+      font-size: 4rem;
+    }
+    @media (min-width: 1280px) {
+      font-size: 5rem;
+    }
+  }
+  
+  .grayScale {
+    filter: grayscale(100%);
+  }
+
+  .sc-cseZMA {
+    color: white; /* Ensure text is readable */
+    border: none; /* Remove default border */
+    padding: 20px 30px; /* Add some padding */
+    cursor: pointer; /* Change cursor on hover */
+    border-radius: 16px; /* Add rounded corners */
+    position: relative; /* Position relative for pseudo-elements */
+    overflow: hidden; /* Hide overflow to ensure pseudo-elements don't overflow */
+    z-index: 0; /* Ensure the button is above the pseudo-elements */
+}
+
+.sc-cseZMA::before, 
+.sc-cseZMA::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: all 0.3s;
+    z-index: -1; /* Ensure pseudo-elements are behind the button text */
+}
+
+.sc-cseZMA::before {
+    background: rgba(0, 0, 0, 0.6);
+    transform: translateY(-100%);
+}
+
+.sc-cseZMA::after {
+    background: rgba(16, 19, 16, 0.75);
+    transform: translateY(-100%);
+}
+
+.sc-cseZMA:hover::before {
+    transform: translateY(0);
+}
+
+.sc-cseZMA:hover::after {
+    transform: translateY(0);
+}
+
+.sc-cseZMA:hover {
+    color: white; /* Ensure text color remains white on hover */
+}
+
+/* CSS for creating a circle */
+
+
+.circle {
+  width: 20%; 
+  height: 67%;
+  border: 2px solid #020202; 
+  border-radius: 50%;
+  position: absolute;
+  top: 20%;
+  left: 48%;
+  /* transform: translate(-40%, -20%); */
+  transform: rotate(45deg);
+  cli-path: polygon(50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  animation: formCircle 3s forwards; /* Animation stops once the circle is fully formed */
+  background-color: transparent; /* No background color */
+  
+}
+
+@keyframes formCircle {
+  0% {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  }
+  25% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 50%);
+  }
+  50% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%);
+  }
+  75% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%);
+  }
+  100% {
+    cli-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%, 50% 100%);
+  }
+}
+
+
+
+
+
+
